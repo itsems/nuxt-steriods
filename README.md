@@ -1,6 +1,7 @@
 # nuxt-course
 
 > Nuxt.js course for Udemy
+> https://www.udemy.com/course/nuxtjs-vuejs-on-steroids/
 
 ## Build Setup
 
