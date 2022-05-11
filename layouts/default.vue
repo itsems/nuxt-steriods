@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    Default Layout
+    <small>(Default Layout)</small>
     <nuxt/>
   </div>
 </template>

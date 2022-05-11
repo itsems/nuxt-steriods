@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header/>
-    Users Layout
+    <small>(Users Layout)</small>
     <nuxt/>
     <footer>Users Footer</footer>
   </div>
