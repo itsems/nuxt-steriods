@@ -14,7 +14,7 @@ import PostList from '@/components/Posts/PostList'
 export default {
   components: { PostList },
   asyncData(context) {
-    return Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({
           loadedPosts: [
@@ -32,6 +32,10 @@ export default {
       context.error(e)
     })
   },
+  created() {
+    this.$store.dispatch('setPosts', this.loadedPosts)
+    console.log(this.$store.getters.loadedPosts);
+  }
 }
 </script>
 
