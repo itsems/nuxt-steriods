@@ -1,7 +1,7 @@
 # nuxt-course
 
-> Nuxt.js course for Udemy
-> https://www.udemy.com/course/nuxtjs-vuejs-on-steroids/
+> Nuxt.js course for Udemy: [Nuxt.js 2 - Vue.js on Steroids](https://www.udemy.com/course/nuxtjs-vuejs-on-steroids/)
+
 
 ## Build Setup
 
