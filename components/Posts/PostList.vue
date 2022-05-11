@@ -1,8 +1,14 @@
 <template>
   <div class="post-list">
-    <PostPreview :is-admin="isAdmin" id="1" thumbnail="" previewText="asdf" title="Hello" />          
-    <PostPreview :is-admin="isAdmin" id="2" thumbnail="" previewText="zxcv" title="Hello 2" />          
-    <PostPreview :is-admin="isAdmin" id="3" thumbnail="" previewText="qwer" title="Hello 3" />          
+    <PostPreview 
+      v-for="post in posts"
+      :key="post.id"
+      :id="post.id"
+      :is-admin="isAdmin"
+      :thumbnail="post.thumbnail"
+      :title="post.title"
+      :previewText="post.previewText"
+      />
   </div>
 </template>
 
@@ -15,6 +21,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 }
