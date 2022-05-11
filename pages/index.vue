@@ -17,18 +17,11 @@ import PostList from '@/components/Posts/PostList'
 
 export default {
   components: { PostList },
-  asyncData(context, cb) {
-    console.log(context);
-    setTimeout(() => {
-      cb(null, {
-        loadedPosts: [
-          { id: '1', title: 'First Post', previewText: 'prepre', thumbnail: ''},
-          { id: '2', title: '2nd Post', previewText: 'prepre2', thumbnail: ''}
-        ]})
-    }, 1500);
-  },
-  created() {
-   
+  created() { },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
   }
 }
 </script>
