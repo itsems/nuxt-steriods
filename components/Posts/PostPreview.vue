@@ -30,7 +30,8 @@ export default {
     },
     thumbnail: {
       type: String,
-      requied: true
+      requied: true,
+      default: 'https://lh3.googleusercontent.com/DQj-gonAVTlhj5W7_DhBVmX-0P42rfvx8TSp1WfQeZ6iFIon6InIS8M4Nbqy7Ql5ahgEXSiRDiWD88v-bcPYIEAg3Q=w640-h400-e365-rj-sc0x00ffffff'
     },
     isAdmin: {
       type: Boolean,
@@ -54,5 +55,11 @@ export default {
   margin-bottom: 15px;
   padding: 1rem;
   margin: 0 5px;
+}
+.post-thumbnail {
+  width: 100%;
+  height: 171px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 </style>

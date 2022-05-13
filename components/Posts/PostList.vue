@@ -1,6 +1,7 @@
 <template>
   <div class="post-list">
-    <PostPreview 
+    <PostPreview
+      class="each-post"
       v-for="post in posts"
       :key="post.id"
       :id="post.id"
@@ -36,5 +37,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.each-post {
+  width: 320px;
 }
 </style>

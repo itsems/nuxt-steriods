@@ -9,6 +9,9 @@
     <label>content: </label>
     <input type="text" v-model="editedPost.content">
     <br>
+    <label>previewText: </label>
+    <input type="text" v-model="editedPost.previewText">
+    <br>
     <button @click="onCancel">Cancel</button>
     <button @click="onSave">Save</button>
   </form>
@@ -29,7 +32,8 @@ export default {
         : {
             author: '',
             title: '',
-            content: ''
+            content: '',
+            previewText: ''
           }
     }
   },
