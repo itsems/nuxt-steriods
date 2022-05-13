@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="onSave">
+  <form>
     <label>author: </label>
     <input type="text" v-model="editedPost.author">
     <br>
@@ -36,7 +36,8 @@ export default {
   methods: {
     onSave() {
       // save
-      console.log(this.editedPost);
+      // console.log(this.editedPost);
+      this.$emit('submit', this.editedPost)
     },
     onCancel() {
       // navigate back

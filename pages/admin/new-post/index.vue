@@ -1,24 +1,28 @@
 <template>
   <div class="admin-new-post-page">
     <section class="new-post-form">
-      <AdminPostForm />      
+      <AdminPostForm @submit="onSubmitted" />      
     </section>
   </div>
 </template>
 
 <script>
 import AdminPostForm from '@/components/Admin/AdminPostForm'
+import axios from 'axios'
 
 export default {
   layout: 'admin',
   components: { AdminPostForm },
   data() {
-    return {
-      
-    }
+    return {}
   },
   methods: {
-    
+    onSubmitted(postData) {
+      console.log('onSubmitted');
+      axios.post('https://fir-cea85.firebaseio.com/posts.json', postData)
+        .then(result => console.log(result))
+        .catch(err => console.log(err))
+    }
   }
 }
 </script>

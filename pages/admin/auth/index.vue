@@ -1,7 +1,7 @@
 <template>
   <div class="admin-auth-page">
     <div class="auth-container">
-      <form>
+      <form @submit.prevent="onSubmit">
         <label>Email</label>
         <input type="email">
         <br>
@@ -24,6 +24,11 @@ export default {
   data() {
     return {
       isLogin: false
+    }
+  },
+  methods: {
+    onSubmit() {
+      // this.$axios.$post()
     }
   }
 }

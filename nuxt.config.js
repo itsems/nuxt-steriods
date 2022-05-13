@@ -53,5 +53,8 @@ module.exports = {
     extend(config, ctx) {
       
     }
+  },
+  router: {
+    middleware: 'log',
   }
 }
