@@ -23,7 +23,7 @@ export default {
   props: {
     post: {
       type: Object,
-      require: false
+      required: false
     }
   },
   data() {
