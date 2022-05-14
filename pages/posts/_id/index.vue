@@ -21,10 +21,8 @@
 import axios from 'axios'
 export default {
   asyncData(context) {
-    console.log('https://fir-cea85.firebaseio.com/posts/' + context.params.id + '.json')
     return axios.get('https://fir-cea85.firebaseio.com/posts/' + context.params.id + '.json')
             .then(res => {
-              console.log('loadedPost', res.data);
               return {
                 loadedPost: res.data
               }

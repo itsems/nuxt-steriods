@@ -10,7 +10,6 @@ const createStore = () => {
     mutations: {
       setPosts(state, posts) {
         state.loadedPosts = posts
-        console.log(state.loadedPosts);
       },
       addPost(state, post) {
         state.loadedPosts.push(post);
@@ -30,11 +29,11 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
-        return axios.get('https://fir-cea85.firebaseio.com/posts.json')
-          .then(data => {
+        return this.$axios.get('https://fir-cea85.firebaseio.com/posts.json')
+          .then(res => {
             const postsArray = []
-            for (const key in data){
-              postsArray.push({ ...data[key], id: key})
+            for (const key in res.data){
+              postsArray.push({ ...res.data[key], id: key})
             }
             vuexContext.commit('setPosts', postsArray)
           })
@@ -84,7 +83,6 @@ const createStore = () => {
             returnSecureToken: true
           })
           .then(result => {
-            console.log(result);
             vuexContext.commit('setToken', result.idToken)
           })
           .catch(e => console.log(e));

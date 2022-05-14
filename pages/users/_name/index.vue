@@ -7,7 +7,6 @@
 <script>
 export default {
   validate (data) {
-    console.log(data);
     // return data.params.name === 'emma'
     return true
   }

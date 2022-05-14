@@ -16,7 +16,6 @@ export default {
   asyncData(context) {
     return axios.get('https://fir-cea85.firebaseio.com/posts/' + context.params.postId + '.json')
             .then(res => {
-              console.log('loadedPost', res.data);
                return {
                   loadedPost: { ...data, id: context.params.postId }
                 };

@@ -18,11 +18,10 @@ export default {
   },
   methods: {
     onSubmitted(postData) {
-      console.log('onSubmitted');
       axios.post('https://fir-cea85.firebaseio.com/posts.json', postData)
         .then(result =>{
           console.log(result)
-          this.$router.push('/admin')
+          // this.$router.push('/admin')
           })
         .catch(err => console.log(err))
     }

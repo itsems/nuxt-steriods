@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent>
+  <form>
     <pre>{{post}}</pre>
     <label>author: </label>
     <input type="text" v-model="editedPost.author">
