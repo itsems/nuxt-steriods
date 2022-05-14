@@ -18,20 +18,17 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   asyncData(context) {
-    return axios.get('https://fir-cea85.firebaseio.com/posts/' + context.params.id + '.json')
-            .then(res => {
-              return {
-                loadedPost: res.data
-              }
-            })
-            .catch(e => context.error(e))
+    return context.app.$axios.$get('/posts/' + context.params.id + '.json')
+      .then(data => {
+        return {
+          loadedPost: data
+        }
+      })
+      .catch(e => context.error(e))
   },
-  
-}
-
+};
 </script>
 
 <style>

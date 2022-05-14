@@ -8,34 +8,31 @@
 
 <script>
 import AdminPostForm from '@/components/Admin/AdminPostForm'
-import axios from 'axios'
 
 export default {
   layout: 'admin',
   components: { AdminPostForm },
   asyncData(context) {
-    return axios.get('https://fir-cea85.firebaseio.com/posts/' + context.params.postId + '.json')
-            .then(res => {
-               return {
-                  loadedPost: { ...data, id: context.params.postId }
-                };
-            })
-            .catch(e => context.error(e))
-  },
-  data() {
-    return {}
+    return context.app.$axios
+      .$get(
+        process.env.baseUrl + "/posts/" +
+          context.params.postId +
+          ".json"
+      )
+      .then(data => {
+        return {
+          loadedPost: { ...data, id: context.params.postId }
+        };
+      })
+      .catch(e => context.error());
   },
   methods: {
     onSubmitted(editedPost) {
-      console.log('editedPost', editedPost);
-      // this.$store.dispatch("editPost", editedPost).then(() => {
-      //   this.$router.push("/admin");
-      // });
+      this.$store.dispatch("editPost", editedPost).then(() => {
+        this.$router.push("/admin");
+      });
     }
   }
-}
+};
 </script>
 
-<style>
-
-</style>
