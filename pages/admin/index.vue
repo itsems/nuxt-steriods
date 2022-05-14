@@ -5,7 +5,7 @@
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
-      <PostList isAdmin />
+      <PostList isAdmin :posts="loadedPosts" />
     </section>
   </div>
   
@@ -13,9 +13,19 @@
 
 <script>
 import PostList from '@/components/Posts/PostList'
+
 export default {
   layout: 'admin',
-  components: { PostList }
+  components: { PostList },
+  computed: {
+    loadedPosts() {
+      console.log(this.$store.getters.loadedPosts);
+      return this.$store.getters.loadedPosts
+    }
+  },
+  methods: {
+    
+  }
 }
 </script>
 

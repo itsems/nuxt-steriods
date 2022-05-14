@@ -1,5 +1,6 @@
 <template>
   <div class="single-post-page">
+      <p>post id page</p>
     <section class="post">
       <h1 class="post-title">Title of the post: {{ loadedPost.title }}</h1>
       <h2>{{ loadedPost.previewText }}</h2>
@@ -17,23 +18,22 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  asyncData(context, cb) {
-    setTimeout(() => {
-      cb(null, {
-        loadedPost: { 
-          id: '1', 
-          title: 'Firs t Post (ID: ' + context.route.params.id + ")", 
-          updatedDate: new Date(),
-          author: 'emma',
-          content: 'zxcvadfqwer',
-          previewText: 'prepre', 
-          thumbnail: ''
-        }
-      })
-    }, 1000);
-  }
+  asyncData(context) {
+    console.log('https://fir-cea85.firebaseio.com/posts/' + context.params.id + '.json')
+    return axios.get('https://fir-cea85.firebaseio.com/posts/' + context.params.id + '.json')
+            .then(res => {
+              console.log('loadedPost', res.data);
+              return {
+                loadedPost: res.data
+              }
+            })
+            .catch(e => context.error(e))
+  },
+  
 }
+
 </script>
 
 <style>

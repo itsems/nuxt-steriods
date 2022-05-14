@@ -6,8 +6,6 @@
     <h2>Feature Posts</h2>
     <PostList :posts="loadedPosts" />
 
-    
-    
   </section>
 </template>
 

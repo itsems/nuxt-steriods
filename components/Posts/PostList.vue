@@ -37,8 +37,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .each-post {
   width: 320px;
+  margin-bottom: 10px;
 }
 </style>

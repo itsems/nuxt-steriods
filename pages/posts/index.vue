@@ -16,6 +16,7 @@ export default {
   created() {},
   computed: {
     loadedPosts() {
+      console.log(this.$store.getters.loadedPosts);
       return this.$store.getters.loadedPosts
     }
   }
