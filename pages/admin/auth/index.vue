@@ -3,10 +3,10 @@
     <div class="auth-container">
       <form @submit.prevent="onSubmit">
         <label>Email</label>
-        <input type="email">
+        <input v-model="email" type="email">
         <br>
         <label>Password</label>
-        <input type="password">
+        <input v-model="password" type="password">
         <br>
         <button type="submit" v-if="isLogin">Login</button>
         <button type="submit" v-else>Sign Up</button>
@@ -19,16 +19,28 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   layout: 'admin',
   data() {
     return {
-      isLogin: false
+      isLogin: false,
+      email: '',
+      password: ''
     }
   },
   methods: {
     onSubmit() {
-      // this.$axios.$post()
+      this.$store.dispatch('authenticateUser', {
+        isLogin: this.isLogin,
+        email: this.email,
+        password: this.password
+      })
+      .then(() => {
+        this.$router.push('/admin')
+      })
+      
     }
   }
 }

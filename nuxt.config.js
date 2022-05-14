@@ -41,7 +41,12 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
   ],
+  axios: {
+    baseURL: process.env.BASE_URL || 'https://nuxt-blog.firebaseio.com',
+    credentials: false
+  },
 
   /*
   ** Build configuration
@@ -53,6 +58,9 @@ module.exports = {
     extend(config, ctx) {
       
     }
+  },
+  env: {
+    fbAPIKey: 'AIzaSyAX1qoAOvc35ILY7KxiSLQCpSzVHwlbrP4'
   },
   router: {
     middleware: 'log',
