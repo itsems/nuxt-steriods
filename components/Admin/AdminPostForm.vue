@@ -13,8 +13,8 @@
     <label>previewText: </label>
     <input type="text" v-model="editedPost.previewText">
     <br>
-    <button @click="onCancel">Cancel</button>
-    <button @click="onSave">Save</button>
+    <button type="button" @click="onCancel">Cancel</button>
+    <button type="button" @click="onSave">Save</button>
   </form>
 </template>
 
@@ -41,7 +41,6 @@ export default {
   methods: {
     onSave() {
       // save
-      // console.log(this.editedPost);
       this.$emit('submit', this.editedPost)
     },
     onCancel() {
