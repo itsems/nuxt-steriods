@@ -11,14 +11,16 @@ import AdminPostForm from "@/components/Admin/AdminPostForm";
 
 export default {
   layout: 'admin',
+  middleware: ['check-auth', 'auth'],
   components: { AdminPostForm },
   data() {
     return {}
   },
   methods: {
     onSubmitted(postData) {
+      // console.log('postData', postData);
       this.$store.dispatch("addPost", postData).then(() => {
-        this.$router.push("/admin");
+        // this.$router.push("/admin");
       });
     }
   }

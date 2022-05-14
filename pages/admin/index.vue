@@ -2,6 +2,7 @@
   <div class="admin-page">
     <section class="new-post">
       <button @click="$router.push('/admin/new-post')">Create Post</button>
+      <button @click="onLogout">Logout</button>
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
@@ -16,6 +17,7 @@ import PostList from '@/components/Posts/PostList'
 
 export default {
   layout: 'admin',
+  middleware: ['check-auth', 'auth'],
   components: { PostList },
   computed: {
     loadedPosts() {
@@ -23,7 +25,10 @@ export default {
     }
   },
   methods: {
-    
+    onLogout() {
+      this.$store.dispatch('logout')
+      this.$router.push('/admin/auth')
+    }
   }
 }
 </script>
