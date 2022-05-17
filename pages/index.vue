@@ -11,10 +11,7 @@
 
 <script>
 
-import PostList from '@/components/Posts/PostList'
-
 export default {
-  components: { PostList },
   created() { },
   computed: {
     loadedPosts() {

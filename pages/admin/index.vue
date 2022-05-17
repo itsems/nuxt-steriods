@@ -13,12 +13,10 @@
 </template>
 
 <script>
-import PostList from '@/components/Posts/PostList'
 
 export default {
   layout: 'admin',
   middleware: ['check-auth', 'auth'],
-  components: { PostList },
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts
